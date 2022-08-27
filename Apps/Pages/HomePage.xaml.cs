@@ -160,6 +160,7 @@ namespace MasterDetailPageNavigation
         [Obsolete]
         private void BindDataUserOnline()
         {
+           
             Person_Img_LoggedIn.IsVisible = false;
             Iniciais_Frame_LoggedIn.IsVisible = false;
             User_Label_Not_LoggedIn.IsVisible = false;
@@ -182,10 +183,9 @@ namespace MasterDetailPageNavigation
                 if (App.DataModel.Utilizador.FotoByteArray == null)
                 {
                     Iniciais_Frame_LoggedIn.IsVisible = true;
-                    if(App.DataModel.Utilizador.Nome.Contains(" "))
+                    if (App.DataModel.Utilizador.Nome.Contains(" "))
                     {
-                        string[] nome = App.DataModel.Utilizador.Nome.Split(' ');
-                        Iniciais_Label.Text = nome[0].ToCharArray()[0].ToString() + "" + nome[1].ToCharArray()[0].ToString();
+                        Iniciais_Label.Text = App.DataModel.Utilizador.Nome.ToCharArray()[0].ToString();
                         Iniciais_Frame_LoggedIn.GestureRecognizers.Add(GoToDefinicoes);
                     }
                     else

@@ -75,8 +75,7 @@ namespace MasterDetailPageNavigation
                 if (App.DataModel.Utilizador.FotoByteArray == null)
                 {
                     Iniciais_Frame_LoggedIn.IsVisible = true;
-                    string[] nome = App.DataModel.Utilizador.Nome.Split(' ');
-                    Iniciais_Label.Text = nome[0].ToCharArray()[0].ToString() + "" + nome[1].ToCharArray()[0].ToString();
+                    Iniciais_Label.Text = App.DataModel.Utilizador.Nome.ToCharArray()[0].ToString();
                     Iniciais_Frame_LoggedIn.GestureRecognizers.Add(GoToDefinicoes);
                 }
                 else

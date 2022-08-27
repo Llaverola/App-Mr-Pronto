@@ -96,25 +96,23 @@ namespace Apps.ViewModels
                     ExibirAvisoDeCamposObrigatorios();
                 else
                 {
-                    LoadingPopupPage loadingpage = new LoadingPopupPage();
-                    await PopupNavigation.PushAsync(loadingpage);
-                    await Task.Delay(2000);
-
                     Utilizador dm = await App.UtilizadoresManager.LoginPostAsync(Username, Password);
                     if (dm.UmbracoMemberId == 0)
                     {
                         LoadingActivator = false;
                         ExibirAvisoDeLoginInvalido();
                         GoToBottom();
-                        await PopupNavigation.RemovePageAsync(loadingpage);
                     }
                     else
                     {
+                        LoadingPopupPage loadingpage = new LoadingPopupPage();
+                        await PopupNavigation.PushAsync(loadingpage);
+                        await Task.Delay(2000);
                         App.UserIsOnline = true;
                         App.DataModel.Utilizador = dm;
                         App.UpdateListView();
-                        //await PopupNavigation.RemovePageAsync(loadingpage);
-                        App.NavigateTo(false, typeof(DefinicoesPage));
+                        await PopupNavigation.RemovePageAsync(loadingpage);
+                        App.NavigateTo(false, typeof(HomePage));
                     }
                 }
             }
