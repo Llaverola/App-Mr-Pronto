@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:circle_img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             mc:Ignorable="d"
+             x:Class="MasterDetailPageNavigation.CategoriasPage"
+             xmlns:local_picker="clr-namespace:CurvedPicker"
+             BackgroundColor="White">
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="Start">
+                    <Grid HeightRequest="50" Margin="0,10,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Margin="20,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Source="icon_menu" HeightRequest="50" BorderWidth="0" x:Name="icon_menu_button" Clicked="icon_menu_button_Clicked"></ImageButton>
+                        <ImageButton HorizontalOptions="Center" BackgroundColor="Transparent" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Source="logo_menu" HeightRequest="40" Clicked="LogoImageButton_Clicked"></ImageButton>
+                        <Grid Margin="0,0,10,0" ColumnSpacing="7" HorizontalOptions="End" VerticalOptions="Center" Grid.Row="0" Grid.Column="2" HeightRequest="18">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="18"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"></ColumnDefinition>
+                                <ColumnDefinition Width="18"></ColumnDefinition>
+                                <ColumnDefinition Width="38"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="&#xf007;" TextColor="Black" HorizontalOptions="End"  FontSize="18" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" FontFamily="{StaticResource FontAwesomeSolid}" x:Name="User_Label_Not_LoggedIn">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="User_Tapped" NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <circle_img:CircleImage  HorizontalOptions="End" x:Name="Person_Img_LoggedIn" HeightRequest="18" WidthRequest="18" IsVisible="False" Grid.Row="0" Grid.Column="0"></circle_img:CircleImage>
+                            <Frame CornerRadius="9" HasShadow="False"  HorizontalOptions="End" IsClippedToBounds="True" BackgroundColor="Black" Grid.Row="0" Grid.Column="0" x:Name="Iniciais_Frame_LoggedIn" IsVisible="False"  Padding="0" HeightRequest="18" WidthRequest="18">
+                                <Label FontFamily="MyCustomFont_Bold" HorizontalOptions="Center" Margin="0" FontSize="9" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" x:Name="Iniciais_Label" TextColor="#FAC321"></Label>
+                            </Frame>
+
+                            <Label Text="&#xf004;" TextColor="Black" HorizontalOptions="End" FontSize="18" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" FontFamily="{StaticResource FontAwesomeSolid}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Wishlist_Tapped" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Grid WidthRequest="38" HeightRequest="18" Grid.Column="2" ColumnSpacing="0" HorizontalOptions="End" VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="18"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="18"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Margin="0,1,0,0" HorizontalOptions="Center" VerticalOptions="Center" Text="&#xf07a;"  TextColor="Black" FontSize="16" FontFamily="{StaticResource FontAwesomeSolid}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="yellowBoxView_Clicked" NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Frame  HasShadow="False" Margin="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="9" BackgroundColor="#f8d7da" Padding="0" IsClippedToBounds="True">
+                                    <Label FontSize="10" TextColor="#842029" Text="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" FontFamily="MyCustomFont_Bold" x:Name="Itens_No_Carrinho_Label"></Label>
+                                </Frame>
+
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                    <StackLayout>
+                        <Image Source="gradient" HorizontalOptions="FillAndExpand"></Image>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" Padding="20,0,20,5">
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Serviços" Grid.Column="0" Margin="0" Padding="0" TextColor="#FAC321" HorizontalOptions="Start" FontSize="40" FontFamily="MyCustomFont_ExtraBold" VerticalTextAlignment="Start" VerticalOptions="Start"></Label>
+                        <ImageButton Grid.Column="1" Source="voltar" BackgroundColor="Transparent" HeightRequest="13" Padding="0" HorizontalOptions="End" Clicked="ImageButton_Clicked"></ImageButton>
+                    </Grid>
+
+                    
+                    <StackLayout Orientation="Vertical" Margin="0,20,0,20" Spacing="0" HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+
+                        <Frame HasShadow="False" OutlineColor="#CCCCCC" Grid.Row="1" HorizontalOptions="FillAndExpand" CornerRadius="19" Padding="0" VerticalOptions="FillAndExpand" HeightRequest="38" IsClippedToBounds="False" BackgroundColor="Transparent">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="38"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="38"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <local_picker:CustomPicker Margin="15,0,0,0" 
+                                                        Grid.Column="0"
+                                                        HeightRequest="38"
+                                                        x:Name="Cat_Picker" 
+                                                        Title="Selecionar Categoria"  
+                                                        FontFamily="MyCustomFont_Regular"
+                                                         SelectedIndexChanged="Cat_Picker_SelectedIndexChanged"
+                                                        VerticalOptions="Center"
+                                                        VerticalTextAlignment="Center"
+                                                        HorizontalTextAlignment="Start"
+                                                        FontSize="13" 
+                                                        TextColor="#1A1A1A"  
+                                                        TitleColor="#1A1A1A">
+                                </local_picker:CustomPicker>
+
+                                <Button Grid.Column="1" Padding="0" Text="&#xf107;" TextColor="#1A1A1A" BackgroundColor="Transparent" BorderColor="Transparent" x:Name="areas_picker_arrow" Clicked="cat_picker_arrow_Clicked"
+                                                            BorderWidth="0" FontSize="12" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontFamily="{StaticResource FontAwesomeSolid}"></Button>
+
+
+                            </Grid>
+                        </Frame>
+                        <Grid Margin="0,30,0,30" RowSpacing="20" ColumnSpacing="10" x:Name="grid_data"></Grid>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+
+        </ScrollView>
+        <Frame
+            x:Name="popuplayout"
+            HasShadow="True"
+            IsVisible="False" 
+            xct:ShadowEffect.Color="#666666"
+            Scale="0"
+            BackgroundColor="White"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,0.8,0.8">
+            <StackLayout Padding="10,5,10,5">
+
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="17">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="20"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" x:Name="Servico_Label" LineHeight="0.9" Padding="0" TextColor="#FAC321" FontSize="15" FontFamily="MyCustomFont_ExtraBold"></Label>
+                    <Button Grid.Column="1" VerticalOptions="Center" Text="&#xf410;" FontFamily="{StaticResource FontAwesomeSolid}" Padding="0" TextColor="Black" FontSize="16" WidthRequest="20" BackgroundColor="Transparent" BorderWidth="0" Clicked="Button_Clicked"></Button>
+
+                </Grid>
+                <Grid RowSpacing="20" ColumnSpacing="10" x:Name="grid_servicos" Margin="0,20,0,0"></Grid>
+
+
+
+            </StackLayout>
+        </Frame>
+
+        <Frame
+            x:Name="popuplayout_sucesso_msg"
+            HasShadow="True"
+            IsVisible="False" 
+            xct:ShadowEffect.Color="#666666"
+            BackgroundColor="#d4edda"
+            Scale="0"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,0.1">
+            <StackLayout Padding="10,5,10,5">
+
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="success" WidthRequest="30" Grid.Column="0"></Image>
+                    <Label Grid.Column="1" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Start" LineHeight="0.9" Padding="0" TextColor="#3BB538" FontSize="13" FontFamily="MyCustomFont_Bold" Text="" x:Name="sucesso_msg_label"></Label>
+
+                </Grid>
+            </StackLayout>
+        </Frame>
+
+
+        <ActivityIndicator IsRunning="{Binding LoadingActivator}" x:Name="loadingActivator" Color="Black" VerticalOptions="Center"
+                               HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" />
+
+
+    </AbsoluteLayout>
+
+</ContentPage>

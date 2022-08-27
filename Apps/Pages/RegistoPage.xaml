@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:local="clr-namespace:CurvedEntry"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:local_picker="clr-namespace:CurvedPicker"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="MasterDetailPageNavigation.RegistoPage">
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All" x:Name="scrollView">
+            <StackLayout HorizontalOptions="FillAndExpand" x:Name="stkMain">
+
+                <Grid AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0,1,1,1">
+                    <StackLayout Orientation="Vertical" Margin="30,40,40,20" Spacing="0" Opacity="1" HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+                        <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="logo_menu" WidthRequest="150" HorizontalOptions="Start"></Image>
+                            <ImageButton Grid.Column="1" Source="voltar" BackgroundColor="Transparent" HeightRequest="13" Padding="0" HorizontalOptions="End" Clicked="VoltarButton_Clicked"></ImageButton>
+                        </Grid>
+
+                        <StackLayout Margin="0,30,0,0">
+                            <Label Text="Faça aqui o seu" TextColor="#1A1A1A" FontSize="22" FontFamily="MyCustomFont_Regular"></Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Registo" FontFamily="MyCustomFont_ExtraBold" TextColor="#FAC321" FontSize="48"  Padding="0" ></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+                            <Grid HorizontalOptions="FillAndExpand" Padding="0" Margin="0,20,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Primeiro Nome" TextColor="#1A1A1A" FontSize="16" FontFamily="MyCustomFont_Bold" Grid.Row="0" Grid.Column="0"></Label>
+
+                                <local:CustomEntry
+                                            x:Name="PrimeiroNome" 
+                                            Grid.Column="0"
+                                            Grid.Row="1" 
+                                            HeightRequest="30" 
+                                            FontFamily="MyCustomFont_Medium"
+                                            HorizontalTextAlignment="Start"
+                                            HorizontalOptions="FillAndExpand"
+                                            FontSize="13"
+                                            TextColor="#1A1A1A"
+                                            BackgroundColor="White"
+                                            ShowBorder="True" 
+                                            IsCurvedCornersEnabled="True" 
+                                            BorderColor="#CCCCCC" BorderWidth="1"  PlaceholderColor="#CCCCCC"  
+                                            Text="{Binding PrimeiroNome}" >
+                                    <local:CustomEntry.CornerRadius>
+                                        <OnPlatform x:TypeArguments="x:Double" iOS="19" Android="19" />
+                                    </local:CustomEntry.CornerRadius>
+                                </local:CustomEntry>
+                                
+                                <Label Text="Último Nome" TextColor="#1A1A1A" FontSize="16" FontFamily="MyCustomFont_Bold" VerticalOptions="Start" Grid.Row="0" Grid.Column="1"></Label>
+
+                                <local:CustomEntry
+                                            x:Name="UltimoNome" 
+                                            Grid.Column="1"
+                                            Grid.Row="1" 
+                                            HeightRequest="30" 
+                                            FontFamily="MyCustomFont_Medium"
+                                            HorizontalTextAlignment="Start"
+                                            HorizontalOptions="FillAndExpand"
+                                            FontSize="13"
+                                            TextColor="#1A1A1A"
+                                            BackgroundColor="White"
+                                            ShowBorder="True" 
+                                            IsCurvedCornersEnabled="True" 
+                                            BorderColor="#CCCCCC" BorderWidth="1"  PlaceholderColor="#CCCCCC"  
+                                            Text="{Binding UltimoNome}" >
+                                    <local:CustomEntry.CornerRadius>
+                                        <OnPlatform x:TypeArguments="x:Double" iOS="19" Android="19" />
+                                    </local:CustomEntry.CornerRadius>
+                                </local:CustomEntry>
+                                
+     
+
+
+                                <Label Text="Username/Email" Grid.ColumnSpan="2" TextColor="#1A1A1A" FontSize="16" FontFamily="MyCustomFont_Bold" Grid.Row="2"></Label>
+
+                                <local:CustomEntry
+                                            x:Name="Username" Grid.ColumnSpan="2"
+                                            Grid.Row="3" 
+                                            HeightRequest="30" 
+                                            FontFamily="MyCustomFont_Medium"
+                                            HorizontalTextAlignment="Start"
+                                            HorizontalOptions="FillAndExpand"  
+                                            Placeholder="endereco_de_email@gmail.com" 
+                                            FontSize="13"
+                                            TextColor="#1A1A1A"
+                                            BackgroundColor="White"
+                                            ShowBorder="True" 
+                                            IsCurvedCornersEnabled="True" 
+                                            BorderColor="#CCCCCC" BorderWidth="1"  PlaceholderColor="#CCCCCC"  
+                                            Text="{Binding Username}" >
+                                    <local:CustomEntry.CornerRadius>
+                                        <OnPlatform x:TypeArguments="x:Double" iOS="19" Android="19" />
+                                    </local:CustomEntry.CornerRadius>
+                                </local:CustomEntry>
+
+
+                                <Label Text="Password" TextColor="#1A1A1A" FontSize="16" FontFamily="MyCustomFont_Bold" Grid.Row="4" Grid.ColumnSpan="2"></Label>
+                                <local:CustomEntry
+                                            x:Name="Password" Grid.ColumnSpan="2"
+                                            Grid.Row="5" 
+                                            HeightRequest="30" 
+                                            FontFamily="MyCustomFont_Medium"
+                                            HorizontalTextAlignment="Start"
+                                            HorizontalOptions="FillAndExpand"  
+                                            Placeholder="*******"
+                                            FontSize="13"
+                                            TextColor="#1A1A1A"
+                                            BackgroundColor="White"
+                                            ShowBorder="True" 
+                                            IsCurvedCornersEnabled="True" 
+                                            BorderColor="#CCCCCC" BorderWidth="1"  PlaceholderColor="#CCCCCC"  
+                                            Text="{Binding Password}">
+                                    <local:CustomEntry.CornerRadius>
+                                        <OnPlatform x:TypeArguments="x:Double" iOS="19" Android="19" />
+                                    </local:CustomEntry.CornerRadius>
+                                </local:CustomEntry>
+                                
+
+
+
+                                <Label Text="Em que área vai fazer os pedidos?" TextColor="#1A1A1A" FontSize="16" FontFamily="MyCustomFont_Bold" Grid.Row="6" Grid.ColumnSpan="2"></Label>
+
+                                <Frame HasShadow="False" OutlineColor="#CCCCCC" Grid.Row="7" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" CornerRadius="19" Padding="0" VerticalOptions="FillAndExpand" HeightRequest="38" IsClippedToBounds="False" BackgroundColor="Transparent">
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="38"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="38"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <local_picker:CustomPicker Margin="15,0,0,0" x:Name="areas_picker" Grid.ColumnSpan="2" ItemsSource="{Binding Areas}" SelectedItem="{Binding Area, Mode=TwoWay}" 
+                                                        Grid.Column="0"
+                                                        HeightRequest="38"
+                                                        Title="Escolha uma opção"  
+                                                        FontFamily="MyCustomFont_Regular"
+                                                        VerticalOptions="Center"
+                                                        VerticalTextAlignment="Center"
+                                                        HorizontalTextAlignment="Start"
+                                                        FontSize="13" 
+                                                        TextColor="#1A1A1A"  
+                                                        TitleColor="#1A1A1A">
+                                        </local_picker:CustomPicker>
+
+                                        <Button Grid.Column="1" Padding="0" Text="&#xf107;" TextColor="#1A1A1A" BackgroundColor="Transparent" BorderColor="Transparent" x:Name="areas_picker_arrow" Clicked="areas_picker_arrow_Clicked"
+                                                            BorderWidth="0" FontSize="12" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontFamily="{StaticResource FontAwesomeSolid}"></Button>
+
+
+                                    </Grid>
+                                </Frame>
+                                
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HeightRequest="50" x:Name="DivSuccessMsg" Margin="0,15,0,0"  VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding ShowSuccess}">
+                            <Grid VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="240">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="success" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+                                <Label Grid.Column="1" Text="Registo efetuado com sucesso." TextColor="#3BB538" FontSize="12" VerticalTextAlignment="Center" FontFamily="MyCustomFont_Medium"></Label>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HeightRequest="50" x:Name="DivErrorMsg" Margin="0,15,0,0" IsVisible="{Binding ShowError}">
+                            <Grid WidthRequest="240" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="error" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+                                <Label Grid.Column="1" Text="Ocorreu um erro. Por favor, tente novamente." FontFamily="MyCustomFont_Medium" TextColor="#DB2323" FontSize="12" VerticalTextAlignment="Center"></Label>
+                            </Grid>
+                        </StackLayout>
+                        <Button Command="{Binding SubmitCommand}" WidthRequest="200" Text="Criar Conta" HorizontalOptions="Center" BackgroundColor="#FAC321" Margin="0,20,0,50" TextColor="#1A1A1A" TextTransform="None" FontFamily="MyCustomFont_Bold" FontSize="16" CornerRadius="20"/>
+                    </StackLayout>
+                    <ActivityIndicator IsRunning="{Binding LoadingActivator}" 
+                                   x:Name="loadingActivator" 
+                                   Color="#AA2179" 
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" />
+                </Grid>
+
+
+            </StackLayout>
+        </ScrollView>
+    </AbsoluteLayout>
+</ContentPage>
+    

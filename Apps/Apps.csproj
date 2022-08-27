@@ -1,0 +1,150 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\VisbyBold Italic.otf" />
+    <None Remove="Fonts\VisbyBold.otf" />
+    <None Remove="Fonts\VisbyExtrabold Italic.otf" />
+    <None Remove="Fonts\VisbyExtrabold.otf" />
+    <None Remove="Fonts\VisbyHeavy Italic.otf" />
+    <None Remove="Fonts\VisbyHeavy.otf" />
+    <None Remove="Fonts\VisbyItalic.otf" />
+    <None Remove="Fonts\VisbyLight Italic.otf" />
+    <None Remove="Fonts\VisbyLight.otf" />
+    <None Remove="Fonts\VisbyMedium Italic.otf" />
+    <None Remove="Fonts\VisbyMedium.otf" />
+    <None Remove="Fonts\VisbyRegular.otf" />
+    <None Remove="Fonts\VisbySemibold Italic.otf" />
+    <None Remove="Fonts\VisbySemibold.otf" />
+    <None Remove="Fonts\VisbyThin Italic.otf" />
+    <None Remove="Fonts\VisbyThin.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\VisbyBold Italic.otf" />
+    <EmbeddedResource Include="Fonts\VisbyBold.otf" />
+    <EmbeddedResource Include="Fonts\VisbyExtrabold Italic.otf" />
+    <EmbeddedResource Include="Fonts\VisbyExtrabold.otf" />
+    <EmbeddedResource Include="Fonts\VisbyHeavy Italic.otf" />
+    <EmbeddedResource Include="Fonts\VisbyHeavy.otf" />
+    <EmbeddedResource Include="Fonts\VisbyItalic.otf" />
+    <EmbeddedResource Include="Fonts\VisbyLight Italic.otf" />
+    <EmbeddedResource Include="Fonts\VisbyLight.otf" />
+    <EmbeddedResource Include="Fonts\VisbyMedium Italic.otf" />
+    <EmbeddedResource Include="Fonts\VisbyMedium.otf" />
+    <EmbeddedResource Include="Fonts\VisbyRegular.otf" />
+    <EmbeddedResource Include="Fonts\VisbySemibold Italic.otf" />
+    <EmbeddedResource Include="Fonts\VisbySemibold.otf" />
+    <EmbeddedResource Include="Fonts\VisbyThin Italic.otf" />
+    <EmbeddedResource Include="Fonts\VisbyThin.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.1.1" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.2" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\LoadingPopupPage.xaml.cs">
+      <DependentUpon>LoadingPopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\CustomLoaderPage.xaml.cs">
+      <DependentUpon>CustomLoaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\FinishOrderPage.xaml.cs">
+      <DependentUpon>FinishOrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\CartPage.xaml.cs">
+      <DependentUpon>CartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\FavoritosPage.xaml.cs">
+      <DependentUpon>FavoritosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\FaqsPage.xaml.cs">
+      <DependentUpon>FaqsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\PedidoPage.xaml.cs">
+      <DependentUpon>PedidoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\MeusPedidosPage.xaml.cs">
+      <DependentUpon>MeusPedidosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\RegistoPage.xaml.cs">
+      <DependentUpon>RegistoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\OutrosContactosPage.xaml.cs">
+      <DependentUpon>OutrosContactosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\CategoriasPage.xaml.cs">
+      <DependentUpon>CategoriasPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ContactarPage.xaml.cs">
+      <DependentUpon>ContactarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\PerfilPage.xaml.cs">
+      <DependentUpon>PerfilPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ChangePasswordPage.xaml.cs">
+      <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\DefinicoesPage.xaml.cs">
+      <DependentUpon>DefinicoesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\PasswordRecoverPage.xaml.cs">
+      <DependentUpon>PasswordRecoverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\MasterDetailPage.xaml.cs">
+      <DependentUpon>MasterDetailPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\CustomGIFLoader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\FavoritosPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\FaqsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\PedidoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\MeusPedidosPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\MasterDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\PasswordRecoverPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:circle_img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+
+             mc:Ignorable="d"
+             x:Class="MasterDetailPageNavigation.OutrosContactosPage"
+             BackgroundColor="White">
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="Start">
+                    <Grid HeightRequest="50" Margin="0,10,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Margin="20,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Source="icon_menu" HeightRequest="50" BorderWidth="0" x:Name="icon_menu_button" Clicked="icon_menu_button_Clicked"></ImageButton>
+                        <ImageButton HorizontalOptions="Center" BackgroundColor="Transparent" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Source="logo_menu" HeightRequest="40" Clicked="LogoImageButton_Clicked"></ImageButton>
+                        <Grid Margin="0,0,10,0" ColumnSpacing="7" HorizontalOptions="End" VerticalOptions="Center" Grid.Row="0" Grid.Column="2" HeightRequest="18">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="18"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"></ColumnDefinition>
+                                <ColumnDefinition Width="18"></ColumnDefinition>
+                                <ColumnDefinition Width="38"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="&#xf007;" TextColor="Black" HorizontalOptions="End"  FontSize="18" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" FontFamily="{StaticResource FontAwesomeSolid}" x:Name="User_Label_Not_LoggedIn">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="User_Tapped" NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <circle_img:CircleImage  HorizontalOptions="End" x:Name="Person_Img_LoggedIn" HeightRequest="18" WidthRequest="18" IsVisible="False" Grid.Row="0" Grid.Column="0"></circle_img:CircleImage>
+                            <Frame HasShadow="False" CornerRadius="9"  HorizontalOptions="End" IsClippedToBounds="True" BackgroundColor="Black" Grid.Row="0" Grid.Column="0" x:Name="Iniciais_Frame_LoggedIn" IsVisible="False"  Padding="0" HeightRequest="18" WidthRequest="18">
+                                <Label FontFamily="MyCustomFont_Bold" HorizontalOptions="Center" Margin="0" FontSize="9" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" x:Name="Iniciais_Label" TextColor="#FAC321"></Label>
+                            </Frame>
+
+                            <Label Text="&#xf004;" TextColor="Black" HorizontalOptions="End" FontSize="18" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" FontFamily="{StaticResource FontAwesomeSolid}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Wishlist_Tapped" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Grid WidthRequest="38" HeightRequest="18" Grid.Column="2" ColumnSpacing="0" HorizontalOptions="End" VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="18"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="18"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Margin="0,1,0,0" HorizontalOptions="Center" VerticalOptions="Center" Text="&#xf07a;"  TextColor="Black" FontSize="16" FontFamily="{StaticResource FontAwesomeSolid}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="yellowBoxView_Clicked" NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Frame HasShadow="False" Margin="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="9" BackgroundColor="#f8d7da" Padding="0" IsClippedToBounds="True">
+                                    <Label FontSize="10" TextColor="#842029" Text="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" FontFamily="MyCustomFont_Bold" x:Name="Itens_No_Carrinho_Label"></Label>
+                                </Frame>
+
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                    <StackLayout>
+                        <Image Source="gradient" HorizontalOptions="FillAndExpand"></Image>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout VerticalOptions="Start" Padding="20,0,20,0">
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Outros Contactos" Grid.Column="0" Margin="0" Padding="0" TextColor="#FAC321" HorizontalOptions="Start" FontSize="40" FontFamily="MyCustomFont_ExtraBold" VerticalTextAlignment="Start" VerticalOptions="Start"></Label>
+                        <ImageButton Grid.Column="1" Source="voltar" BackgroundColor="Transparent" HeightRequest="13" Padding="0" HorizontalOptions="End" Clicked="ImageButton_Clicked"></ImageButton>
+                    </Grid>
+                    
+                    <Grid HorizontalOptions="Start" VerticalOptions="Start" Margin="0,20,0,30" ColumnSpacing="10" RowSpacing="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" x:Name="row_1"></RowDefinition>
+                            <RowDefinition Height="25" x:Name="row_2"></RowDefinition>
+                            <RowDefinition Height="25" x:Name="row_3"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame Padding="0" IsClippedToBounds="True" HeightRequest="25" WidthRequest="25" CornerRadius="12.5" BackgroundColor="#1A1A1A" Grid.Row="0" Grid.Column="0">
+                            <Label Text="&#xf0e0;" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="{StaticResource FontAwesomeSolid}"></Label>
+                        </Frame>
+
+                        <Label Grid.Row="0" Grid.Column="1" FontFamily="MyCustomFont_Medium" TextColor="#1A1A1A" FontSize="11" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" x:Name="email_label" Margin="10,0,0,0"></Label>
+
+                        <Frame Padding="0" IsClippedToBounds="True" HeightRequest="25" WidthRequest="25" CornerRadius="12.5" BackgroundColor="#1A1A1A" Grid.Row="1" Grid.Column="0">
+                            <Label Text="&#xf879;" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="{StaticResource FontAwesomeSolid}"></Label>
+                        </Frame>
+
+                        <Label Grid.Row="1" Grid.Column="1"  FontFamily="MyCustomFont_Medium" TextColor="#1A1A1A" FontSize="11" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" x:Name="telemovel_label" Margin="10,0,0,0"></Label>
+
+
+                        <Frame Padding="0" IsClippedToBounds="True" HeightRequest="25" WidthRequest="25" CornerRadius="12.5" BackgroundColor="#1A1A1A" Grid.Row="2" Grid.Column="0">
+                            <Label Text="&#xf3c5;" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="{StaticResource FontAwesomeSolid}"></Label>
+                        </Frame>
+                        <Label Grid.Row="2" Grid.Column="1"  FontFamily="MyCustomFont_Medium" TextColor="#1A1A1A" FontSize="11" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" x:Name="morada_label" Margin="10,0,0,0"></Label>
+                    </Grid>
+                </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
+
+        <ActivityIndicator IsRunning="{Binding LoadingActivator}" x:Name="loadingActivator" Color="#AA2179" VerticalOptions="Center"
+                               HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" />
+    </AbsoluteLayout>
+
+</ContentPage>

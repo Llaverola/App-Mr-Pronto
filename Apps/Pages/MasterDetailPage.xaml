@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterDetailPageNavigation.MasterPage"
+			 Padding="0,0,0,0"
+			 IconImageSource="hamburger.png"
+			 Title="Mr. Pronto">
+    <StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Image HeightRequest="50" Source="logo_menu" Margin="20,100,0,0" HorizontalOptions="Start" VerticalOptions="Start"></Image>
+        </StackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public"  Margin="20,20,20,0" VerticalOptions="Start" Footer="" SeparatorVisibility="None" HorizontalOptions="StartAndExpand" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="{Binding RowHeight}"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" 
+                                   Text="{Binding Title}"
+                                   FontAttributes="Bold"
+                                   FontSize="16"
+                                   TextColor="#1A1A1A" />
+                            <BoxView Grid.Row="1" BackgroundColor="{Binding BackgroundColor}" HeightRequest="{Binding RowHeight}" HorizontalOptions="FillAndExpand"></BoxView>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

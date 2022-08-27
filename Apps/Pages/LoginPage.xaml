@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="MasterDetailPageNavigation.LoginPage">
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All" x:Name="scrollView">
+            <StackLayout HorizontalOptions="FillAndExpand" x:Name="stkMain">
+                <Grid AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0,1,1,1">
+                    <StackLayout Orientation="Vertical" Margin="30,40,40,20" Spacing="0" Opacity="1" HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+                        <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="logo_menu" WidthRequest="150" HorizontalOptions="Start"></Image>
+                            <ImageButton Grid.Column="1" Source="voltar" BackgroundColor="Transparent" HeightRequest="13" Padding="0" HorizontalOptions="End" Clicked="VoltarButton_Clicked"></ImageButton>
+                        </Grid>
+
+                        <StackLayout Margin="0,30,0,0">
+                            <Label Text="Para entrar na aplicação faça" TextColor="#1A1A1A" FontSize="22" FontFamily="MyCustomFont_Regular"></Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Login" FontFamily="MyCustomFont_ExtraBold" TextColor="#FAC321" FontSize="48"  Padding="0" ></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+                            <Grid HorizontalOptions="FillAndExpand" Padding="0" Margin="0,20,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="16"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Username ou Email" TextColor="#1A1A1A" FontSize="16" FontFamily="MyCustomFont_Bold" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
+
+                                <Entry x:Name="Username" 
+                                   Text="{Binding Username}" 
+                                   PropertyChanging="Username_PropertyChanging" 
+                                   Grid.Column="0" 
+                                   Grid.Row="1" 
+                                   Placeholder="example@gmail.com" 
+                                   HeightRequest="30" HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   PlaceholderColor="#CCCCCC"  
+                                   FontFamily="MyCustomFont_Regular"
+                                   TextColor="#1A1A1A">
+                                    
+                                </Entry>
+                                <ImageButton Source="ic_clear_icon.png" 
+                                         BackgroundColor="Transparent" 
+                                         VerticalOptions="Center" 
+                                         IsVisible="{Binding ImgUsernameIsVisible}" 
+                                         x:Name="imgUsername" 
+                                         Grid.Column="1" 
+                                         Grid.Row="1" 
+                                         Command="{Binding ImgUsernameCommand}">
+                                </ImageButton>
+
+                                <Label Text="Password" TextColor="#1A1A1A" FontSize="16" FontFamily="MyCustomFont_Bold" Grid.Row="2" Grid.ColumnSpan="2"></Label>
+                                <Entry x:Name="Password"  
+                                   HeightRequest="30" HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" 
+                                   Text="{Binding Password}" 
+                                   Placeholder="*******" Grid.Column="0" Grid.Row="3" FontFamily="MyCustomFont_Regular"
+                               PropertyChanging="Password_PropertyChanging"
+                               IsPassword="True" 
+                               PlaceholderColor="#CCCCCC"
+                               TextColor="#1A1A1A"></Entry>
+
+                                <ImageButton Source="ic_clear_icon.png" BackgroundColor="Transparent" VerticalOptions="Center" IsVisible="False" x:Name="imgPassword" Grid.Column="1" Grid.Row="3" Clicked="imgPassword_Clicked"></ImageButton>
+
+                                <Grid Grid.Column="0"
+                                   Grid.Row="4"  HorizontalOptions="Start">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox x:Name="cb" Grid.Column="0" CheckedChanged="cb_CheckedChanged"></CheckBox>
+                                    <Label Text="Mostrar Palavra-Passe" VerticalOptions="CenterAndExpand" Grid.Column="1" FontSize="Small" FontFamily="MyCustomFont_Regular"></Label>
+                                </Grid>
+
+
+
+
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HeightRequest="50" x:Name="DivErrorMsg" Margin="0,15,0,0" IsVisible="False">
+                            <Grid WidthRequest="240" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="error" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Start"></Image>
+                                <Label Grid.Column="1" Text="Os dados que introduziu não estão corretos ou a sua conta não está ativa. Por favor, tente novamente." FontFamily="MyCustomFont_Medium" TextColor="#DB2323" FontSize="12" VerticalTextAlignment="Center"></Label>
+                            </Grid>
+                        </StackLayout>
+                        <Button Command="{Binding SubmitCommand}" WidthRequest="200" Text="Entrar" HorizontalOptions="FillAndExpand" BackgroundColor="#FAC321" Margin="0,20,0,0" TextColor="#1A1A1A" TextTransform="None" FontFamily="MyCustomFont_Bold" FontSize="16" CornerRadius="20"/>
+
+                        <Label Text="Esqueci-me da password" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,30,0,15" FontFamily="MyCustomFont_Bold" FontSize="16" TextColor="#1A1A1A" TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Esquecime_da_pwd_tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <BoxView BackgroundColor="#F0F0F0" HeightRequest="5"></BoxView>
+
+                        <Label x:Name="Registo_Label" LineHeight="1.2" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,15,0,30" FontFamily="MyCustomFont_Bold" FontSize="16" TextColor="#1A1A1A" TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Registo_tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>
+                    <ActivityIndicator IsRunning="{Binding LoadingActivator}" 
+                                   x:Name="loadingActivator" 
+                                   Color="#AA2179" 
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </AbsoluteLayout>
+</ContentPage>
