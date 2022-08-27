@@ -40,7 +40,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.mrpronto.app</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleName</key>
 	<string>Mr. Pronto</string>
 	<key>XSAppIconAssets</key>
