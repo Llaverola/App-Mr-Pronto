@@ -113,7 +113,7 @@ namespace Apps.ViewModels
                         App.UserIsOnline = true;
                         App.DataModel.Utilizador = dm;
                         App.UpdateListView();
-                        await PopupNavigation.RemovePageAsync(loadingpage);
+                        //await PopupNavigation.RemovePageAsync(loadingpage);
                         App.NavigateTo(false, typeof(DefinicoesPage));
                     }
                 }
