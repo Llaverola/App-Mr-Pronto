@@ -40,7 +40,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.mrpronto.app</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.3</string>
 	<key>CFBundleName</key>
 	<string>Mr. Pronto</string>
 	<key>XSAppIconAssets</key>
@@ -52,21 +52,21 @@
 		<string>FontAwesome5Solid.otf</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>This app needs access to the camera to take photos for the user profile.</string>
+	<string>Para tirar uma foto e usá-la como a foto do seu perfil.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs permission to access files.</string>
+	<string>Para escolher uma foto e usá-la como a foto do seu perfil.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This permission is not needed by the app, but it is required by an underlying API. If you see this dialog, contact us.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app needs access to the photo gallery in order to save files.</string>
+	<string>Este aplicativo precisa de acesso à galeria de fotos para salvar arquivos.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app wants to use your location in order to search the nearest therapies closest to you.</string>
+	<string>Este aplicativo deseja usar sua localização para pesquisar os serviços mais próximas de si.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app requires your location in order to search the nearest therapies closest to you.</string>
+	<string>Este aplicativo deseja usar sua localização para pesquisar os serviços mais próximas de si.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This app requires your location in order to search the nearest therapies closest to you.</string>
+	<string>Este aplicativo deseja usar sua localização para pesquisar os serviços mais próximas de si.</string>
 	<key>NSLocationUsageDescription</key>
-	<string>This app requires your location in order to search the nearest therapies closest to you.</string>
+	<string>Este aplicativo deseja usar sua localização para pesquisar os serviços mais próximas de si.</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon-60@2x</string>
